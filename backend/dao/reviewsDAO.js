@@ -9,7 +9,7 @@ export default class ReviewsDAO {
             return;
         } try {
             reviews = await conn.db(process.env.MOVIEREVIEWS_NS)
-                .collection('reviews');
+                .collection('comments'); // Changed from reviews
         } catch (e) {
             console.error(`unable to estabish connection handle in reviewDAO: ${e}`);
         }
