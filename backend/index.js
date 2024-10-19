@@ -11,12 +11,11 @@ async function main() {
         process.env.MOVIEREVIEWS_DB_URI
     );
     const port = process.env.PORT || 8000;
-
     try {
         // Connect to the MongoDB cluster
         await client.connect();
         await MoviesDAO.injectDB(client);
-        await ReviewsDAO.injectDAO(client);
+        await ReviewsDAO.injectDB(client);
         app.listen(port, () => {
             console.log('server is running on port: ' + port);
         });
